@@ -103,14 +103,6 @@
       justify-content: flex-end;
     }
 
-    .structure-tip {
-      margin: 10px 0 0;
-      color: #506173;
-      font-size: 14px;
-      font-weight: 900;
-      line-height: 1.45;
-    }
-
     button {
       appearance: none;
       border: 0;
@@ -756,6 +748,20 @@
       line-height: 1.6;
     }
 
+    .structure-tip {
+      position: absolute;
+      z-index: 9;
+      left: 5%;
+      top: 5%;
+      margin: 0;
+      color: #3f6070;
+      font-size: clamp(12px, 1.45vw, 16px);
+      font-weight: 900;
+      line-height: 1.45;
+      text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.82);
+      pointer-events: none;
+    }
+
     @keyframes pulse {
       from {
         transform: translate(-50%, -50%) scale(1);
@@ -1006,6 +1012,7 @@
 
     <section id="stage" class="stage is-focus-mode" aria-label="动态分泌蛋白运输地图">
       <div class="map"></div>
+      <p class="structure-tip">点击细胞结构查看说明</p>
       <svg class="route" viewBox="0 0 1024 559" aria-hidden="true">
         <path d="M318 170 C356 222 284 350 360 366 C470 368 486 280 590 286 C690 292 704 384 790 354 C852 332 858 245 914 226"/>
         <circle cx="318" cy="170" r="12"/>
@@ -1044,7 +1051,6 @@
         <span id="stepLabel" class="step-label">第 1 步 / 6</span>
         <h2 id="stepTitle">游离核糖体</h2>
         <p id="stepDesc">核糖体读取 mRNA 信息，合成分泌蛋白的多肽链。进入探索模式后可拖动核糖体，观察它作为“合成起点”的位置。</p>
-        <p class="structure-tip">点击细胞结构查看说明</p>
         <div id="taskCard" class="task-card" role="status" aria-live="polite"></div>
       </div>
       <div id="stepList" class="steps"></div>
